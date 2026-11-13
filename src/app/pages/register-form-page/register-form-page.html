@@ -38,6 +38,10 @@
     <div class="mb-3">
       <label class="form-label">Nombre de la mascota</label>
       <input type="text" class="form-control" formControlName="nombre">
+      @if (hasError('mascota.nombre', 'required')) { <small class="text-danger">El nombre de la mascota es obligatorio</small> }
+      @if (hasError('mascota.nombre', 'minlength')) { <small class="text-danger">Entre 2 y 20 caracteres</small> }
+      @if (hasError('mascota.nombre', 'maxlength')) { <small class="text-danger">Entre 2 y 20 caracteres</small> }
+      @if (hasError('mascota.nombre', 'pattern')) { <small class="text-danger">Solo letras, espacios y guiones</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Especie</label>
@@ -48,27 +52,38 @@
         <option value="Ave">Ave</option>
         <option value="Otro">Otro</option>
       </select>
+      @if (hasError('mascota.especie', 'required')) { <small class="text-danger">Selecciona una especie</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Sexo</label>
       <input type="radio" formControlName="sexo" value="Macho"> Macho
       <input type="radio" formControlName="sexo" value="Hembra"> Hembra
+      @if (hasError('mascota.sexo', 'required')) { <small class="text-danger">Indica el sexo de la mascota</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Raza (opcional)</label>
       <input type="text" class="form-control" formControlName="raza">
+      @if (hasError('mascota.raza', 'maxlength')) { <small class="text-danger">Máximo 40 caracteres</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Edad en años</label>
       <input type="number" class="form-control" formControlName="edad">
+      @if (hasError('mascota.edad', 'required')) { <small class="text-danger">La edad es obligatoria</small> }
+      @if (hasError('mascota.edad', 'min')) { <small class="text-danger">La edad debe estar entre 0 y 30 años</small> }
+      @if (hasError('mascota.edad', 'max')) { <small class="text-danger">La edad debe estar entre 0 y 30 años</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Peso en kg</label>
       <input type="number" step="0.1" class="form-control" formControlName="peso">
+      @if (hasError('mascota.peso', 'required')) { <small class="text-danger">El peso es obligatorio</small> }
+      @if (hasError('mascota.peso', 'min')) { <small class="text-danger">El peso debe estar entre 0,1 y 90 kg</small> }
+      @if (hasError('mascota.peso', 'max')) { <small class="text-danger">El peso debe estar entre 0,1 y 90 kg</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Número de microchip</label>
       <input type="text" class="form-control" formControlName="microchip">
+      @if (hasError('mascota.microchip', 'required')) { <small class="text-danger">El microchip es obligatorio</small> }
+      @if (hasError('mascota.microchip', 'pattern')) { <small class="text-danger">El microchip debe tener exactamente 15 dígitos numéricos</small> }
     </div>
   </div>
 

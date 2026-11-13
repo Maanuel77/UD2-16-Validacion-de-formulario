@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SOLO_LETRAS, TELEFONO } from '../../validators/regex';
+import { MICROCHIP, NOMBRE_MASCOTA, SOLO_LETRAS, TELEFONO } from '../../validators/regex';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -17,13 +17,13 @@ export class RegisterFormPage {
       email: new FormControl('', [Validators.required, Validators.email]),
     }),
     mascota: new FormGroup({
-      nombre: new FormControl(''),
-      especie: new FormControl(''),
-      sexo: new FormControl(''),
-      raza: new FormControl(''),
-      edad: new FormControl(null),
-      peso: new FormControl(null),
-      microchip: new FormControl(''),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20), Validators.pattern(NOMBRE_MASCOTA)]),
+      especie: new FormControl('', [Validators.required]),
+      sexo: new FormControl('', [Validators.required]),
+      raza: new FormControl('', [Validators.maxLength(40)]),
+      edad: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(30)]),
+      peso: new FormControl(null, [Validators.required, Validators.min(0.1), Validators.max(90)]),
+      microchip: new FormControl('', [Validators.required, Validators.pattern(MICROCHIP)]),
     }),
     cuenta: new FormGroup({
       password: new FormControl(''),
