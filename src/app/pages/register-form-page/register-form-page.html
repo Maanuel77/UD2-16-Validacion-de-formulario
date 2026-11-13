@@ -6,18 +6,30 @@
     <div class="mb-3">
       <label class="form-label">Nombre</label>
       <input type="text" class="form-control" formControlName="nombre">
+      @if (hasError('propietario.nombre', 'required')) { <small class="text-danger">El nombre es obligatorio</small> }
+      @if (hasError('propietario.nombre', 'minlength')) { <small class="text-danger">Mínimo 2 caracteres</small> }
+      @if (hasError('propietario.nombre', 'maxlength')) { <small class="text-danger">Máximo 30 caracteres</small> }
+      @if (hasError('propietario.nombre', 'pattern')) { <small class="text-danger">Solo se permiten letras</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Apellidos</label>
       <input type="text" class="form-control" formControlName="apellidos">
+      @if (hasError('propietario.apellidos', 'required')) { <small class="text-danger">Los apellidos son obligatorios</small> }
+      @if (hasError('propietario.apellidos', 'minlength')) { <small class="text-danger">Mínimo 2 caracteres</small> }
+      @if (hasError('propietario.apellidos', 'maxlength')) { <small class="text-danger">Máximo 50 caracteres</small> }
+      @if (hasError('propietario.apellidos', 'pattern')) { <small class="text-danger">Solo se permiten letras</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Teléfono de contacto</label>
       <input type="tel" class="form-control" formControlName="telefono">
+      @if (hasError('propietario.telefono', 'required')) { <small class="text-danger">El teléfono es obligatorio</small> }
+      @if (hasError('propietario.telefono', 'pattern')) { <small class="text-danger">Introduce un teléfono español válido</small> }
     </div>
     <div class="mb-3">
       <label class="form-label">Email</label>
       <input type="email" class="form-control" formControlName="email">
+      @if (hasError('propietario.email', 'required')) { <small class="text-danger">El email es obligatorio</small> }
+      @if (hasError('propietario.email', 'email')) { <small class="text-danger">Formato de email no válido</small> }
     </div>
   </div>
 

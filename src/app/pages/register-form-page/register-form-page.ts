@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SOLO_LETRAS, TELEFONO } from '../../validators/regex';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -10,10 +11,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class RegisterFormPage {
   registerForm = new FormGroup({
     propietario: new FormGroup({
-      nombre: new FormControl(''),
-      apellidos: new FormControl(''),
-      telefono: new FormControl(''),
-      email: new FormControl(''),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern(SOLO_LETRAS)]),
+      apellidos: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern(SOLO_LETRAS)]),
+      telefono: new FormControl('', [Validators.required, Validators.pattern(TELEFONO)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
     }),
     mascota: new FormGroup({
       nombre: new FormControl(''),
@@ -31,6 +32,11 @@ export class RegisterFormPage {
       recordatorios: new FormControl(false),
     }),
   });
+
+  hasError(field: string, error: string) {
+    const control = this.registerForm.get(field);
+    return control?.hasError(error) && (control.dirty || control.touched);
+  }
 
   registrar() {
     console.log(this.registerForm.value);
