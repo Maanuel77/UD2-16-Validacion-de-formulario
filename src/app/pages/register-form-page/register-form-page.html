@@ -93,13 +93,21 @@
     <div class="col-md-6 mb-3">
       <label class="form-label">Contraseña</label>
       <input type="password" class="form-control" formControlName="password">
+      @if (hasError('cuenta.password', 'required')) { <small class="text-danger d-block">La contraseña es obligatoria</small> }
+      @if (hasError('cuenta.password', 'minlength')) { <small class="text-danger d-block">Mínimo 10 caracteres</small> }
+      @if (hasError('cuenta.password', 'maxlength')) { <small class="text-danger d-block">Máximo 24 caracteres</small> }
+      @if (hasError('cuenta.password', 'pattern')) { <small class="text-danger d-block">Debe tener una mayúscula, una minúscula y un número, sin espacios</small> }
     </div>
     <div class="col-12 mb-3">
       <label class="form-label">Motivo de la primera visita</label>
       <textarea rows="3" class="form-control" formControlName="motivo"></textarea>
+      @if (hasError('cuenta.motivo', 'required')) { <small class="text-danger d-block">Describe el motivo de la visita</small> }
+      @if (hasError('cuenta.motivo', 'minlength')) { <small class="text-danger d-block">Entre 10 y 300 caracteres</small> }
+      @if (hasError('cuenta.motivo', 'maxlength')) { <small class="text-danger d-block">Entre 10 y 300 caracteres</small> }
     </div>
     <div class="col-12 mb-3">
       <input type="checkbox" class="form-check-input me-1" formControlName="privacidad"> Acepto la política de privacidad
+      @if (hasError('cuenta.privacidad', 'required')) { <small class="text-danger d-block">Debes aceptar la política de privacidad</small> }
     </div>
     <div class="col-12 mb-3">
       <input type="checkbox" class="form-check-input me-1" formControlName="recordatorios"> Quiero recibir recordatorios de vacunas por email
