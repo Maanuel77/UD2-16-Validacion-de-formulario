@@ -1,49 +1,50 @@
-<form class="container my-4" [formGroup]="registerForm" (ngSubmit)="registrar()">
-  <h1>Registro de mascota</h1>
+<div class="container my-5" style="max-width: 800px">
+<form class="card shadow p-4" [formGroup]="registerForm" (ngSubmit)="registrar()">
+  <h1 class="text-center text-primary mb-4">Registro de mascota</h1>
 
-  <h3>Datos del propietario</h3>
-  <div formGroupName="propietario">
-    <div class="mb-3">
+  <h4 class="border-bottom pb-2 mt-3 mb-3">Datos del propietario</h4>
+  <div class="row" formGroupName="propietario">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Nombre</label>
       <input type="text" class="form-control" formControlName="nombre">
-      @if (hasError('propietario.nombre', 'required')) { <small class="text-danger">El nombre es obligatorio</small> }
-      @if (hasError('propietario.nombre', 'minlength')) { <small class="text-danger">Mínimo 2 caracteres</small> }
-      @if (hasError('propietario.nombre', 'maxlength')) { <small class="text-danger">Máximo 30 caracteres</small> }
-      @if (hasError('propietario.nombre', 'pattern')) { <small class="text-danger">Solo se permiten letras</small> }
+      @if (hasError('propietario.nombre', 'required')) { <small class="text-danger d-block">El nombre es obligatorio</small> }
+      @if (hasError('propietario.nombre', 'minlength')) { <small class="text-danger d-block">Mínimo 2 caracteres</small> }
+      @if (hasError('propietario.nombre', 'maxlength')) { <small class="text-danger d-block">Máximo 30 caracteres</small> }
+      @if (hasError('propietario.nombre', 'pattern')) { <small class="text-danger d-block">Solo se permiten letras</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Apellidos</label>
       <input type="text" class="form-control" formControlName="apellidos">
-      @if (hasError('propietario.apellidos', 'required')) { <small class="text-danger">Los apellidos son obligatorios</small> }
-      @if (hasError('propietario.apellidos', 'minlength')) { <small class="text-danger">Mínimo 2 caracteres</small> }
-      @if (hasError('propietario.apellidos', 'maxlength')) { <small class="text-danger">Máximo 50 caracteres</small> }
-      @if (hasError('propietario.apellidos', 'pattern')) { <small class="text-danger">Solo se permiten letras</small> }
+      @if (hasError('propietario.apellidos', 'required')) { <small class="text-danger d-block">Los apellidos son obligatorios</small> }
+      @if (hasError('propietario.apellidos', 'minlength')) { <small class="text-danger d-block">Mínimo 2 caracteres</small> }
+      @if (hasError('propietario.apellidos', 'maxlength')) { <small class="text-danger d-block">Máximo 50 caracteres</small> }
+      @if (hasError('propietario.apellidos', 'pattern')) { <small class="text-danger d-block">Solo se permiten letras</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Teléfono de contacto</label>
       <input type="tel" class="form-control" formControlName="telefono">
-      @if (hasError('propietario.telefono', 'required')) { <small class="text-danger">El teléfono es obligatorio</small> }
-      @if (hasError('propietario.telefono', 'pattern')) { <small class="text-danger">Introduce un teléfono español válido</small> }
+      @if (hasError('propietario.telefono', 'required')) { <small class="text-danger d-block">El teléfono es obligatorio</small> }
+      @if (hasError('propietario.telefono', 'pattern')) { <small class="text-danger d-block">Introduce un teléfono español válido</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Email</label>
       <input type="email" class="form-control" formControlName="email">
-      @if (hasError('propietario.email', 'required')) { <small class="text-danger">El email es obligatorio</small> }
-      @if (hasError('propietario.email', 'email')) { <small class="text-danger">Formato de email no válido</small> }
+      @if (hasError('propietario.email', 'required')) { <small class="text-danger d-block">El email es obligatorio</small> }
+      @if (hasError('propietario.email', 'email')) { <small class="text-danger d-block">Formato de email no válido</small> }
     </div>
   </div>
 
-  <h3>Datos de la mascota</h3>
-  <div formGroupName="mascota">
-    <div class="mb-3">
+  <h4 class="border-bottom pb-2 mt-3 mb-3">Datos de la mascota</h4>
+  <div class="row" formGroupName="mascota">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Nombre de la mascota</label>
       <input type="text" class="form-control" formControlName="nombre">
-      @if (hasError('mascota.nombre', 'required')) { <small class="text-danger">El nombre de la mascota es obligatorio</small> }
-      @if (hasError('mascota.nombre', 'minlength')) { <small class="text-danger">Entre 2 y 20 caracteres</small> }
-      @if (hasError('mascota.nombre', 'maxlength')) { <small class="text-danger">Entre 2 y 20 caracteres</small> }
-      @if (hasError('mascota.nombre', 'pattern')) { <small class="text-danger">Solo letras, espacios y guiones</small> }
+      @if (hasError('mascota.nombre', 'required')) { <small class="text-danger d-block">El nombre de la mascota es obligatorio</small> }
+      @if (hasError('mascota.nombre', 'minlength')) { <small class="text-danger d-block">Entre 2 y 20 caracteres</small> }
+      @if (hasError('mascota.nombre', 'maxlength')) { <small class="text-danger d-block">Entre 2 y 20 caracteres</small> }
+      @if (hasError('mascota.nombre', 'pattern')) { <small class="text-danger d-block">Solo letras, espacios y guiones</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Especie</label>
       <select class="form-select" formControlName="especie">
         <option value="">Selecciona</option>
@@ -52,58 +53,59 @@
         <option value="Ave">Ave</option>
         <option value="Otro">Otro</option>
       </select>
-      @if (hasError('mascota.especie', 'required')) { <small class="text-danger">Selecciona una especie</small> }
+      @if (hasError('mascota.especie', 'required')) { <small class="text-danger d-block">Selecciona una especie</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Sexo</label>
-      <input type="radio" formControlName="sexo" value="Macho"> Macho
-      <input type="radio" formControlName="sexo" value="Hembra"> Hembra
-      @if (hasError('mascota.sexo', 'required')) { <small class="text-danger">Indica el sexo de la mascota</small> }
+      <br><input type="radio" class="form-check-input me-1" formControlName="sexo" value="Macho"> Macho
+      <input type="radio" class="form-check-input ms-3 me-1" formControlName="sexo" value="Hembra"> Hembra
+      @if (hasError('mascota.sexo', 'required')) { <small class="text-danger d-block">Indica el sexo de la mascota</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Raza (opcional)</label>
       <input type="text" class="form-control" formControlName="raza">
-      @if (hasError('mascota.raza', 'maxlength')) { <small class="text-danger">Máximo 40 caracteres</small> }
+      @if (hasError('mascota.raza', 'maxlength')) { <small class="text-danger d-block">Máximo 40 caracteres</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Edad en años</label>
       <input type="number" class="form-control" formControlName="edad">
-      @if (hasError('mascota.edad', 'required')) { <small class="text-danger">La edad es obligatoria</small> }
-      @if (hasError('mascota.edad', 'min')) { <small class="text-danger">La edad debe estar entre 0 y 30 años</small> }
-      @if (hasError('mascota.edad', 'max')) { <small class="text-danger">La edad debe estar entre 0 y 30 años</small> }
+      @if (hasError('mascota.edad', 'required')) { <small class="text-danger d-block">La edad es obligatoria</small> }
+      @if (hasError('mascota.edad', 'min')) { <small class="text-danger d-block">La edad debe estar entre 0 y 30 años</small> }
+      @if (hasError('mascota.edad', 'max')) { <small class="text-danger d-block">La edad debe estar entre 0 y 30 años</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Peso en kg</label>
       <input type="number" step="0.1" class="form-control" formControlName="peso">
-      @if (hasError('mascota.peso', 'required')) { <small class="text-danger">El peso es obligatorio</small> }
-      @if (hasError('mascota.peso', 'min')) { <small class="text-danger">El peso debe estar entre 0,1 y 90 kg</small> }
-      @if (hasError('mascota.peso', 'max')) { <small class="text-danger">El peso debe estar entre 0,1 y 90 kg</small> }
+      @if (hasError('mascota.peso', 'required')) { <small class="text-danger d-block">El peso es obligatorio</small> }
+      @if (hasError('mascota.peso', 'min')) { <small class="text-danger d-block">El peso debe estar entre 0,1 y 90 kg</small> }
+      @if (hasError('mascota.peso', 'max')) { <small class="text-danger d-block">El peso debe estar entre 0,1 y 90 kg</small> }
     </div>
-    <div class="mb-3">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Número de microchip</label>
       <input type="text" class="form-control" formControlName="microchip">
-      @if (hasError('mascota.microchip', 'required')) { <small class="text-danger">El microchip es obligatorio</small> }
-      @if (hasError('mascota.microchip', 'pattern')) { <small class="text-danger">El microchip debe tener exactamente 15 dígitos numéricos</small> }
+      @if (hasError('mascota.microchip', 'required')) { <small class="text-danger d-block">El microchip es obligatorio</small> }
+      @if (hasError('mascota.microchip', 'pattern')) { <small class="text-danger d-block">El microchip debe tener exactamente 15 dígitos numéricos</small> }
     </div>
   </div>
 
-  <h3>Cuenta y primera visita</h3>
-  <div formGroupName="cuenta">
-    <div class="mb-3">
+  <h4 class="border-bottom pb-2 mt-3 mb-3">Cuenta y primera visita</h4>
+  <div class="row" formGroupName="cuenta">
+    <div class="col-md-6 mb-3">
       <label class="form-label">Contraseña</label>
       <input type="password" class="form-control" formControlName="password">
     </div>
-    <div class="mb-3">
+    <div class="col-12 mb-3">
       <label class="form-label">Motivo de la primera visita</label>
-      <textarea class="form-control" formControlName="motivo"></textarea>
+      <textarea rows="3" class="form-control" formControlName="motivo"></textarea>
     </div>
-    <div class="mb-3">
-      <input type="checkbox" formControlName="privacidad"> Acepto la política de privacidad
+    <div class="col-12 mb-3">
+      <input type="checkbox" class="form-check-input me-1" formControlName="privacidad"> Acepto la política de privacidad
     </div>
-    <div class="mb-3">
-      <input type="checkbox" formControlName="recordatorios"> Quiero recibir recordatorios de vacunas por email
+    <div class="col-12 mb-3">
+      <input type="checkbox" class="form-check-input me-1" formControlName="recordatorios"> Quiero recibir recordatorios de vacunas por email
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Registrar</button>
+  <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Registrar</button>
 </form>
+</div>
